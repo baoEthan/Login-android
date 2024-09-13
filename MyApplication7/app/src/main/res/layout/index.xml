@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <GridView
-        android:id="@+id/gridview"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10px"
-        android:horizontalSpacing="3px"
-        android:verticalSpacing="3px"
-        android:numColumns="3"
-        />
-</LinearLayout>
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:id="@+id/ll_title"
+        tools:ignore="MissingConstraints">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/img"
+            android:src="@drawable/ic_launcher_background"
+            />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="用户888"
+            android:layout_toRightOf="@+id/img"
+            android:layout_alignBottom="@+id/img"
+            />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

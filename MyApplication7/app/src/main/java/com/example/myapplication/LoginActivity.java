@@ -15,6 +15,7 @@ public class LoginActivity extends AppCompatActivity {
     private int CODE2 = 0x718;
     private int[] imageId = new int[]{R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
             R.drawable.img5, R.drawable.img6,R.drawable.img7, R.drawable.img8, R.drawable.img9};
+    int id=-1;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (confirm.equals(password) && !username.isEmpty() && !password.isEmpty()) {
                     if (!username.isEmpty()) {
                         //todo: 跳转后的index界面
+                        //todo:用户和密码的一致性
                         intent.putExtra("username", username);
                         intent.putExtra("password", password);
                         intent.setClass(LoginActivity.this, IndexActivity.class);
@@ -65,7 +67,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent();
-                intent.setClass(LoginActivity.this, IndexActivity.class);
+                intent.setClass(LoginActivity.this, HeadImageActivity.class);
                 startActivityForResult(intent,CODE2);
             }
         });
@@ -89,6 +91,7 @@ public class LoginActivity extends AppCompatActivity {
         if (requestCode == CODE2 && resultCode == CODE2){
             int index = data.getIntExtra("imageId",0);
             ((ImageView) findViewById(R.id.image)).setImageResource(imageId[index]);
+            id = index;
         }
     }
 }
